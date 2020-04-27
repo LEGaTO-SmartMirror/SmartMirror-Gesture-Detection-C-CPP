@@ -17,7 +17,7 @@ module.exports = NodeHelper.create({
 					//console.log("[" + self.name + "] detected object: " + parsed_message.detected.name + " center in "  + parsed_message.detected.center);
 					self.sendSocketNotification('DETECTED_GESTURES', parsed_message);
 				}else if (parsed_message.hasOwnProperty('GESTURE_DET_FPS')){
-					//console.log("[" + self.name + "] object detection fps: " + JSON.stringify(parsed_message));
+					console.log("[" + self.name + "] gesture detection fps: " + JSON.stringify(parsed_message));
 					self.sendSocketNotification('GESTURE_DET_FPS', parsed_message.GESTURE_DET_FPS);
 				}else if (parsed_message.hasOwnProperty('STATUS')){
 					console.log("[" + self.name + "] status received: " + JSON.stringify(parsed_message));
@@ -42,10 +42,8 @@ module.exports = NodeHelper.create({
 		const self = this;	
 		if(notification === 'GestureDetection_SetFPS') {
 			if(cAppStarted) {
-                		var data = {"FPS": payload}
-				self.gestureDet.stdin.write(payload.toString() + "\n");
+       				self.gestureDet.stdin.write(payload.toString() + "\n");
 				console.log("[" + self.name + "] changing to: " + payload.toString() + " FPS");
-
          		}
        	 	}else if(notification === 'GESTURE_DETECITON_CONFIG') {
       			self.config = payload

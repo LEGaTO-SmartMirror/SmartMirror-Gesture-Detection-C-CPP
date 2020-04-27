@@ -148,6 +148,12 @@ int main(int argc, char *argv[]) {
           	  	scanf("%s", message);
 			maxFPS = atof(message);
        		 }
+
+
+		if (maxFPS == 0) {
+			usleep(1 * 1000);
+			continue;
+		}
 	
 		det_s = in_s;
 		local_dets = dets;

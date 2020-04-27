@@ -25,7 +25,7 @@ Module.register('SmartMirror-Gesture-Detection-C-CPP',{
 	},
 
 	notificationReceived: function(notification, payload, sender) {
-		if(notification === 'smartmirror-gesture-detectionSetFPS') {
+		if(notification === 'smartmirror-gesture-recognitionSetFPS') {
 			this.sendSocketNotification('GestureDetection_SetFPS', payload);
         }
 	},
