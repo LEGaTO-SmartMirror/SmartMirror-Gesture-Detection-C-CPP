@@ -1,0 +1,5 @@
+#ignore pyc...
+*.pyc
+
+object-detection/build/*
+*.bak
