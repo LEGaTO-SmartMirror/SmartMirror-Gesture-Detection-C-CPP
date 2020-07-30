@@ -27,12 +27,12 @@ static image det_s;
 
 static cap_cv *cap;
 static float fps 		= 0;
-static float thresh 		= .6;
-static float hier_thresh 	= .5;
-static int classes 		= 80;
+static float thresh 		= .4;
+static float hier_thresh 	= .4;
+static int classes 		= 32;
 char **names 			= NULL;
 
-static double maxFPS = 5.;
+static double maxFPS = 10.;
 static int framecounter = 0;
 static double framecounteracc = 0.0; 
 
@@ -86,15 +86,17 @@ int main(int argc, char *argv[]) {
 
 	
 	// Path to configuration file.
-    static char *cfg_file = "../data/yolov3-tiny-hand_3l.cfg";
+    static char *cfg_file = "../data/yolov3-tiny-hand_3l.cfg"; //"../data/yolov3-handtracing.cfg";
+
     // Path to weight file.
-    static char *weight_file = "../data/yolov3-tiny-hand_3l_best.weights";
+    static char *weight_file = "../data/yolov3-tiny-hand_3l_best.weights"; //"../data/yolov3-handtracing_91_percent.weights";
+
     // Path to a file describing classes names.
     static char *names_file = "../data/hand.names";
     
-    size_t classes = 0;
-	names = get_labels(names_file);
-	while (names[classes] != NULL) {
+    classes = 0;
+    names = get_labels(names_file);
+    while (names[classes] != NULL) {
          classes++;
     }
         
@@ -174,9 +176,9 @@ int main(int argc, char *argv[]) {
 		//char* det_json = detection_to_json(dets, num_boxes, classes, names, 0 , "");
 		//printf(det_json);
 		
-		draw_detections_cv_v3(in_img, local_dets, local_nboxes, thresh, names, NULL, classes, 0);
+		//draw_detections_cv_v3(in_img, local_dets, local_nboxes, thresh, names, NULL, classes, 0);
 		//show_image_mat(in_img, "Demo");	
-		int c = wait_key_cv(1);
+		//int c = wait_key_cv(1);
 		//if (c == 27 || c == 1048603) flag_exit = 1;
 		
 		
