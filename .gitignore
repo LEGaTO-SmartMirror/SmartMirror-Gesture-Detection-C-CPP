@@ -1,5 +1,7 @@
 #ignore pyc...
 *.pyc
 
-object-detection/build/*
+gesture-detection/build/*
 *.bak
+
+*.weights
