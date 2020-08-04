@@ -1,6 +1,7 @@
 #ignore pyc...
 *.pyc
 
+gesture_detection/build/*
 gesture-detection/build/*
 *.bak
 
