@@ -1,5 +1,0 @@
-classes = 32
-train  = cfg/train_hand.txt
-valid  = cfg/test_hand.txt
-names = cfg/hand.names
-backup = /mnt/storage/gesture_weights/
